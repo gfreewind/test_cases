@@ -5,7 +5,8 @@ result=
 factorial() {
 	n=$1
 	result=1
-	for i in $(seq 1 $n); do
+	for ((i=1; i<=$n;i++)); do
+	#for i in $(seq 1 $n); do
 		result=$((result*$i))
 	done
 }
