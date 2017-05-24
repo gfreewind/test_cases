@@ -66,7 +66,8 @@ bool EventPoll::epoll_add_fd(int fd, unsigned int flags)
 
 	int ret = epoll_ctl(epoll_fd_, EPOLL_CTL_ADD, fd, &event);
 	if (0 != ret) {
-		cerr << "epoll_ctl failed: " << strerror(errno) << endl;
+		cerr << "epoll_ctl add failed: " << strerror(errno) << endl;
+		cerr << "fd: " << fd << endl;
 		return false;
 	}
 
@@ -87,7 +88,7 @@ bool EventPoll::epoll_modify_fd(int fd,unsigned int flags)
 
 	int ret = epoll_ctl(epoll_fd_, EPOLL_CTL_MOD, fd, &event);
 	if (0 != ret) {
-		cerr << "epoll_ctl failed: " << strerror(errno) << endl;
+		cerr << "epoll_ctl mod failed: " << strerror(errno) << endl;
 		return false;
 	}
 

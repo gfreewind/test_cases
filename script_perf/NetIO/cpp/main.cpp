@@ -1,4 +1,7 @@
 #include <signal.h>
+#include <sys/time.h>
+#include <sys/resource.h>
+#include <string.h>
 
 #include <iostream>
 #include <vector>
@@ -38,6 +41,14 @@ int main(int argc, const char ** argv)
 
 	signal(SIGPIPE, SIG_IGN);
 
+	struct rlimit limit;
+	limit.rlim_cur = 100000;
+	limit.rlim_max = 100000;
+	if (setrlimit(RLIMIT_FSIZE, &limit)) {
+		cerr << "Fail to set fd limit: " << strerror(errno) << endl;
+		exit(1);
+	}
+
 	ThreadPool thrd_pool;
 
 	rps_stats.reserve(worker_cnt);
@@ -75,7 +86,7 @@ static void show_stats(void)
 			rps_stats[i] = 0;
 		}
 
-		cout << total_rps << " RPS" << endl;
+		cout << "Total: " << total_rps << " RPS" << endl;
 	}
 }
 
@@ -123,13 +134,16 @@ static void fake_http_thread(void *data)
 			cout << "timeout" << endl;
 			continue;
 		} else if (ret) {
-			cout << "ret: " << ret << " ready_fds:" << ready_fds.size() << endl;
 			for (auto it = ready_fds.begin();
 				it != ready_fds.end();
 				++it) {
 				if (it->fd_ == master.sock_) {
 					// new conn
 					int fd = accept(master.sock_, NULL, NULL);
+					if (fd == -1) {
+						cerr << "Fail to accept: " << strerror(errno) << endl;
+						continue;
+					}
 					if (!ep.epoll_add_fd(fd, EventPoll::EPOLL_EPOLLIN)) {
 						cerr << "Fail to add fd into epoll" << endl;
 						break;
@@ -140,8 +154,6 @@ static void fake_http_thread(void *data)
 						// Just send and close
 						write(it->fd_, http_response, sizeof(http_response));
 						*rps += 1;
-						ep.epoll_del_fd(it->fd_);
-						close(it->fd_);
 						
 					}					
 					ep.epoll_del_fd(it->fd_);
