@@ -42,14 +42,14 @@ int main(int argc, const char ** argv)
 	signal(SIGPIPE, SIG_IGN);
 
 	struct rlimit limit;
-	limit.rlim_cur = 100000;
-	limit.rlim_max = 100000;
+	limit.rlim_cur = 1000000;
+	limit.rlim_max = 1000000;
 	if (setrlimit(RLIMIT_FSIZE, &limit)) {
 		cerr << "Fail to set fd limit: " << strerror(errno) << endl;
 		exit(1);
 	}
 
-	ThreadPool thrd_pool;
+	ThreadPool thrd_pool(true, 0, 3);
 
 	rps_stats.reserve(worker_cnt);
 	start_worker_thread(thrd_pool, worker_cnt);

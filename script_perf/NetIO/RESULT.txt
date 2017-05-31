@@ -1,0 +1,27 @@
+cpp: ./netio_cpp  2
+
+Total: 42529 RPS
+Total: 41467 RPS
+Total: 41167 RPS
+Total: 41999 RPS
+Total: 42517 RPS
+Total: 41884 RPS
+Total: 42219 RPS
+Total: 42258 RPS
+Total: 41953 RPS
+Total: 40874 RPS
+Total: 41092 RPS
+Total: 42357 RPS
+Total: 41896 RPS
+Total: 42161 RPS
+Total: 41008 RPS
+Total: 41763 RPS
+Total: 42229 RPS
+Total: 42445 RPS
+Total: 42859 RPS
+Total: 43032 RPS
+Total: 42864 RPS
+Total: 43230 RPS
+
+
+
