@@ -1,4 +1,5 @@
 cpp: ./netio_cpp  2
+Per thread could service 20K+ RPS(new conn/s)
 
 Total: 42529 RPS
 Total: 41467 RPS
@@ -22,6 +23,34 @@ Total: 42859 RPS
 Total: 43032 RPS
 Total: 42864 RPS
 Total: 43230 RPS
+
+
+python: ./netio_python.py 8081
+Per process could service 11K+ RPS(new conn/s)
+
+Total: 11943 RPS
+Total: 11869 RPS
+Total: 11845 RPS
+Total: 11820 RPS
+Total: 11760 RPS
+Total: 11764 RPS
+Total: 11651 RPS
+Total: 11649 RPS
+Total: 11570 RPS
+Total: 11585 RPS
+Total: 11470 RPS
+Total: 11524 RPS
+Total: 11417 RPS
+Total: 11415 RPS
+Total: 11397 RPS
+Total: 11363 RPS
+Total: 11262 RPS
+Total: 11207 RPS
+Total: 11203 RPS
+Total: 11203 RPS
+Total: 11139 RPS
+Total: 11137 RPS
+Total: 11099 RPS
 
 
 
