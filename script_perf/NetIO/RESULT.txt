@@ -30,7 +30,8 @@ Total: 11585 RPS
 
 golang (goroutine solution): taskset 0x1 ./netio_routine
 Limit golang program runs on one CPU by tasklet.
-Per process could service 16K+ RPS(new conn/s)
+Per process could service 16K+ RPS(new conn/s).
+ATTENTION: It could not enhanced with CPU cores increasing.
 
 Total: 16271 RPS
 Total: 16274 RPS
