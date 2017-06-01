@@ -1,11 +1,12 @@
 #!/usr/bin/python
 import sys, socket, select, threading, time
 
-http_response = ("HTTP/1.0 200 OK\r\nCache-Control: no-cache\r\n"
-				"Connection: close\r\n"
-				"Content-Type: text/html\r\n"
-				"\r\n"
-				"<html><body><h1>200 OK</h1>\nHello world.\n</body></html>\n")
+http_response = ("HTTP/1.0 200 OK\r\n"
+                "Cache-Control: no-cache\r\n"
+                "Connection: close\r\n"
+                "Content-Type: text/html\r\n"
+                "\r\n"
+                "<html><body><h1>200 OK</h1>\nHello world.\n</body></html>\n")
 
 rps_cnt = 0
 
