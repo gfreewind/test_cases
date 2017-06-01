@@ -11,18 +11,6 @@ Total: 42219 RPS
 Total: 42258 RPS
 Total: 41953 RPS
 Total: 40874 RPS
-Total: 41092 RPS
-Total: 42357 RPS
-Total: 41896 RPS
-Total: 42161 RPS
-Total: 41008 RPS
-Total: 41763 RPS
-Total: 42229 RPS
-Total: 42445 RPS
-Total: 42859 RPS
-Total: 43032 RPS
-Total: 42864 RPS
-Total: 43230 RPS
 
 
 python: ./netio_python.py 8081
@@ -38,19 +26,21 @@ Total: 11651 RPS
 Total: 11649 RPS
 Total: 11570 RPS
 Total: 11585 RPS
-Total: 11470 RPS
-Total: 11524 RPS
-Total: 11417 RPS
-Total: 11415 RPS
-Total: 11397 RPS
-Total: 11363 RPS
-Total: 11262 RPS
-Total: 11207 RPS
-Total: 11203 RPS
-Total: 11203 RPS
-Total: 11139 RPS
-Total: 11137 RPS
-Total: 11099 RPS
 
+
+golang (goroutine solution): taskset 0x1 ./netio_routine
+Limit golang program runs on one CPU by tasklet.
+Per process could service 16K+ RPS(new conn/s)
+
+Total: 16271 RPS
+Total: 16274 RPS
+Total: 16153 RPS
+Total: 16126 RPS
+Total: 16233 RPS
+Total: 16098 RPS
+Total: 16113 RPS
+Total: 15998 RPS
+Total: 16338 RPS
+Total: 16177 RPS
 
 
