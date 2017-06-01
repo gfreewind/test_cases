@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-var response = "HTTP/1.0 200 OK\r\n" + "Cache-Control: no-cache\r\n" + "Connection: close\r\n" + "Content-Type: text/html\r\n" + "\r\n" + "<html><body><h1>200 OK</h1>\nHello world.\n</body></html>\n"
+var response = "HTTP/1.0 200 OK\r\nCache-Control: no-cache\r\nConnection: close\r\nContent-Type: text/html\r\n\r\n<html><body><h1>200 OK</h1>\nHello world.\n</body></html>\n"
 var rps = 0
 
 func main() {
