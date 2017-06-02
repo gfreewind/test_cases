@@ -21,7 +21,7 @@ if(CMAKE_THREAD_LIBS_INIT)
     link_libraries(${CMAKE_THREAD_LIBS_INIT})
 endif()
 
-set(CMAKE_CXX_FLAGS "-g -Wall -std=gnu++11")
+set(CMAKE_CXX_FLAGS "-g -Wall -O3 -std=gnu++11")
 set(CMAKE_CXX_COMPILER "clang++")
 
 aux_source_directory(. DIR_SRCS)
