@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"net"
 	"os"
+	"runtime"
 	"time"
 )
 
@@ -13,7 +14,10 @@ var rps = 0
 
 func main() {
 	port := flag.String("port", "8081", "Specify the port")
+	cores := flag.Uint("cores", 1, "Specify the CPU cores using")
 	flag.Parse()
+
+	runtime.GOMAXPROCS(int(*cores))
 
 	addr := "0.0.0.0:" + *port
 	masterSock, err := net.Listen("tcp", addr)
