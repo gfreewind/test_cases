@@ -20,7 +20,7 @@ func main() {
 	runtime.GOMAXPROCS(int(*cores))
 
 	addr := "0.0.0.0:" + *port
-	masterSock, err := net.Listen("tcp", addr)
+	masterSock, err := net.Listen("tcp4", addr)
 	if err != nil {
 		fmt.Printf("Fail to listen %s: %s\n", *port, err.Error())
 		os.Exit(1)
